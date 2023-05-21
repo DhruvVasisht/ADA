@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "conio.h": "c",
+        "stdio.h": "c"
+    }
+}
