@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-
+// Function to swap two items
 void swap(int *a, int *b) {
     int t = *a;
     *a = *b;
     *b = t;
 }
 
-
+// Partition function used in quicksort
 int partition(int arr[], float density[], int low, int high) {
     float pivot = density[high];
     int i = low - 1;
@@ -24,7 +24,7 @@ int partition(int arr[], float density[], int low, int high) {
     return (i + 1);
 }
 
-
+// Quicksort function
 void quicksort(int arr[], float density[], int low, int high) {
     if(low < high) {
         int pi = partition(arr, density, low, high);
@@ -33,18 +33,18 @@ void quicksort(int arr[], float density[], int low, int high) {
     }
 }
 
-
+// Fractional Knapsack function
 float fractionalKnapsack(int W, int value[], int weight[], int n) {
     float total_value = 0;
     int current_weight = 0;
     float density[n];
 
-
+    // Calculate density of each item
     for(int i = 0; i < n; i++) {
         density[i] = (float) value[i] / weight[i];
     }
 
- 
+    // Sort items by density using quicksort
     quicksort(weight, density, 0, n - 1);
 
     for(int i = 0; i < n; i++) {
@@ -75,5 +75,5 @@ int main() {
 
     float max_value = fractionalKnapsack(W, value, weight, n);
     printf("Maximum value= %f\n", max_value);
-    return 0;
+ return 0;
 }
